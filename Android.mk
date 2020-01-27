@@ -27,6 +27,7 @@ LOCAL_PATH := $(call my-dir)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
+ifeq ($(CURRENT_BUILD_TYPE), nogapps)
 include $(CLEAR_VARS)
 LOCAL_MODULE := LatinIMEGooglePrebuilt
 LOCAL_MODULE_TAGS := optional
@@ -38,6 +39,7 @@ LOCAL_PRODUCT_MODULE := true
 LOCAL_OVERRIDES_PACKAGES := LatinIME
 LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
 include $(BUILD_PREBUILT)
+endif
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := Lawnchair
@@ -50,6 +52,7 @@ LOCAL_SRC_FILES := app/Lawnchair/Lawnchair.apk
 LOCAL_REPLACE_PREBUILT_APK_INSTALLED := $(LOCAL_PATH)/$(LOCAL_SRC_FILES)
 include $(BUILD_PREBUILT)
 
+ifeq ($(CURRENT_BUILD_TYPE), nogapps)
 include $(CLEAR_VARS)
 LOCAL_MODULE := SoundPickerPrebuilt
 LOCAL_MODULE_TAGS := optional
@@ -60,3 +63,4 @@ LOCAL_MODULE_CLASS := APPS
 LOCAL_PRODUCT_MODULE := true
 LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
 include $(BUILD_PREBUILT)
+endif
