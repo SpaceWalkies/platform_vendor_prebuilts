@@ -3,10 +3,9 @@ PRODUCT_PACKAGES += \
     Longshot
 
 # Extra packages
-ifeq ($(CURRENT_BUILD_TYPE), nogapps)
+ifeq ($(DERP_BUILD_ZIP_TYPE), VANILLA)
 PRODUCT_PACKAGES += \
-    LatinIMEGooglePrebuilt \
-    SoundPickerPrebuilt
+    Firefox-lite
 endif
 
 # Lawnchair
